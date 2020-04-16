@@ -1,87 +1,127 @@
 import * as React from 'react';
 import {
     Text,
-    FlatList,
-    Button,
     View,
-    StyleSheet
+    StyleSheet,
+    ScrollView
 } from 'react-native';
-import AnimateNumber from 'react-native-animate-number'
+import AnimateNumber from 'react-native-animate-number';
+import {Card} from 'react-native-shadow-cards';
 
-function Data({data,idxNegara}){
+function Data({data}){
     return(
         <View style={styles.container}>
-            <View style={styles.cards}>
-                <Text>POSITIVE</Text>
+            <Card style={styles.cards1}>
+                <Text style={styles.txPos}>POSITIF</Text>
                 <AnimateNumber
+                    style={styles.pos}
                     steps={10}
                     interval={2.5}
-                    value={
-                        idxNegara==0?
-                        data.Global.TotalConfirmed :
-                        data.Countries[idxNegara-1].TotalConfirmed
-                    }
+                    value={data.cases}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }}
                 />
-                <Text>Last Update: {new Date(data.Date).toDateString()}</Text>
-            </View>
-            <View style={styles.cards}>
-                <Text>RECOVERED</Text>
+            </Card>
+            <Card style={styles.cards2}>
+                <Text style={styles.txRecv}>SEMBUH</Text>
                 <AnimateNumber
+                    style={styles.recv}
                     steps={10}
                     interval={2.5}
-                    value={
-                        idxNegara==0?
-                        data.Global.TotalRecovered :
-                        data.Countries[idxNegara-1].TotalRecovered
-                    }
+                    value={data.recovered}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }}
                 />
-                <Text>Last Update: {new Date(data.Date).toDateString()}</Text>
-            </View>
-            <View style={styles.cards}>
-                <Text>DEATHS</Text>
+            </Card>
+            <Card style={styles.cards3}>
+                <Text style={styles.txDeaths}>MENINGGAL</Text>
                 <AnimateNumber
+                    style={styles.death}
                     steps={10}
                     interval={2.5}
-                    value={
-                        idxNegara==0?
-                        data.Global.TotalDeaths :
-                        data.Countries[idxNegara-1].TotalDeaths
-                    }
+                    value={data.deaths}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }}
                 />
-                <Text>Last Update: {new Date(data.Date).toDateString()}</Text>
-            </View>
+            </Card>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 50
     },
-    cards:{
+    cards1:{
         width: '90%',
-        height: '25%',
-        shadowColor: 'blue',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 1,
-        shadowRadius: 2,
-        elevation: 5,
-        padding: 20,
-        marginTop: 10,
+        height: '20%',
         marginBottom: 10,
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderLeftColor: '#f39c12',
+        borderLeftWidth: 10
     },
+    cards2:{
+        width: '90%',
+        height: '20%',
+        marginBottom: 10,
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderLeftColor: '#2ecc71',
+        borderLeftWidth: 10
+    },
+    cards3:{
+        width: '90%',
+        height: '20%',
+        marginBottom: 10,
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderLeftColor: '#2c3e50',
+        borderLeftWidth: 10
+    },
+    txPos: {
+        fontSize: 30,
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    },
+    pos: {
+        fontSize: 30,
+        color: '#f39c12',
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    },
+    txRecv: {
+        fontSize: 30,
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    },
+    recv: {
+        fontSize: 30,
+        color: '#2ecc71',
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    },
+    txDeaths: {
+        fontSize: 30,
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    },
+    death: {
+        fontSize: 30,
+        color: '#2c3e50',
+        fontWeight: "bold",
+        textAlignVertical: 'center'
+    }
 });
 
 export default Data;
