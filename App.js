@@ -15,10 +15,34 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Button } from 'react-native-elements';
 import RNBootSplash from "react-native-bootsplash";
 import Home from './src/Home.js';
+import {
+  Tentang,
+  Gejala,
+  Penyebab,
+  Pencegahan
+} from './src/Artikel';
 import DrawerContents from './src/Drawer.js';
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
+const TentangStack = createStackNavigator();
+const GejalaStack = createStackNavigator();
+const PenyebabStack = createStackNavigator();
+const PencegahanStack = createStackNavigator();
+
+function Hamburger({navigation}){
+  return(
+    <Button
+        type="clear"
+        onPress={()=> navigation.toggleDrawer()}
+        icon={
+          <Image
+            source={require('./src/assets/hamburger.png')}
+          />
+        }
+    />
+  )
+}
 
 function LogoTitle() {
   return (
@@ -29,6 +53,82 @@ function LogoTitle() {
   );
 }
 
+function PencegahanStackScreen({navigation}){
+  return(
+    <PencegahanStack.Navigator>
+        <PencegahanStack.Screen
+            name="Pencegahan"
+            component={Pencegahan}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    elevation: 0
+                }
+            }}
+        />
+    </PencegahanStack.Navigator>
+  );
+}
+
+function PenyebabStackScreen({navigation}){
+  return(
+    <PenyebabStack.Navigator>
+        <PenyebabStack.Screen
+            name="Penyebab"
+            component={Penyebab}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    elevation: 0
+                }
+            }}
+        />
+    </PenyebabStack.Navigator>
+  );
+}
+
+function GejalaStackScreen({navigation}){
+  return(
+    <GejalaStack.Navigator>
+        <GejalaStack.Screen
+            name="Gejala"
+            component={Gejala}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    elevation: 0
+                }
+            }}
+        />
+    </GejalaStack.Navigator>
+  );
+}
+
+function TentangStackScreen({navigation}){
+  return(
+    <TentangStack.Navigator>
+        <TentangStack.Screen
+            name="Tentang"
+            component={Tentang}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    elevation: 0
+                }
+            }}
+        />
+    </TentangStack.Navigator>
+  );
+}
+
 function HomeStackScreen({navigation}){
   return(
       <HomeStack.Navigator>
@@ -36,17 +136,7 @@ function HomeStackScreen({navigation}){
               name="Home"
               component={Home}
               options={{
-                  headerLeft: () => (
-                      <Button
-                          type="clear"
-                          onPress={()=> navigation.toggleDrawer()}
-                          icon={
-                            <Image
-                              source={require('./src/assets/hamburger.png')}
-                            />
-                          }
-                      />
-                  ),
+                  headerLeft: () => <Hamburger navigation={navigation}/>,
                   headerTitle: props => <LogoTitle {...props}/> ,
                   headerStyle: {
                       backgroundColor: 'transparant',
@@ -73,6 +163,10 @@ function App(){
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <DrawerContents {...props}/>}>
         <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Tentang Covid19" component={TentangStackScreen} />
+        <Drawer.Screen name="Kenali Gejala Covid19" component={GejalaStackScreen} />
+        <Drawer.Screen name="Penyebab Virus Covid19" component={PenyebabStackScreen} />
+        <Drawer.Screen name="Cara Mencegah Virus Covid19" component={PencegahanStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
