@@ -23,3 +23,13 @@ export const getCountriesData = async() => {
         return error;
     }
 }
+
+export const getLastUpdate = async() => {
+    try{
+        const {data: {lastUpdate}} = await API.get('https://covid19.mathdro.id/api');
+        return lastUpdate;
+    }
+    catch(error){
+        return error;
+    }
+}

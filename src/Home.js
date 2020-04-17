@@ -8,7 +8,7 @@ import {
 import Graph from './components/Graph.js';
 import Negara from './components/Negara.js';
 import Data from './components/Data.js';
-import { getData, getCountriesData } from './api/Api';
+import { getData, getCountriesData, getLastUpdate } from './api/Api';
 import { Button } from 'react-native-elements';
 
 function Home(){
@@ -20,8 +20,11 @@ function Home(){
     const[countryType,changeType] = React.useState(false);
     const[isWorldWide,changeWorld] = React.useState(true);
     const[tipe,ubahTipe] = React.useState('Tipe: Benua')
+    const[date,update] = React.useState('');
 
     const fetch = async() => {
+        const lastUpdate = await getLastUpdate();
+        update(lastUpdate);
         const fetchData = await getData();
         setData(fetchData);
         const fetchCountriesData = await getCountriesData();
@@ -87,7 +90,7 @@ function Home(){
                 />
                 <Negara data={countryType==false?continent:negara} changeCountry={changeCountry}/>
                 <Graph data={data} isWorldWide={isWorldWide} benua={benuaTerbanyak} negara={negaraTerbanyak} countryType={countryType}/>
-                <Data data={data}/>
+                <Data data={data} lastUpdate={date}/>
             </ScrollView>
         </View>
     );

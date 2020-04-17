@@ -43,6 +43,7 @@ function Graph({data,isWorldWide,benua,negara,countryType}){
         color: () => '#2c3e50', // THIS
         propsForLabels: {
             fontSize: 15,
+            fontWeight: 'bold'
         },
         propsForBackgroundLines: {
             strokeWidth: "0"
@@ -77,7 +78,8 @@ function Graph({data,isWorldWide,benua,negara,countryType}){
 
 const styles = StyleSheet.create({
     container:{
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: -10
     },
     barChart: {
         backgroundColor:"transparent",

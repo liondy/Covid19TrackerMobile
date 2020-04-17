@@ -14,7 +14,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Button } from 'react-native-elements';
 import RNBootSplash from "react-native-bootsplash";
-import Home from './src/Home.js'
+import Home from './src/Home.js';
+import DrawerContents from './src/Drawer.js';
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
@@ -70,7 +71,7 @@ function App(){
   },[]);
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator drawerContent={props => <DrawerContents {...props}/>}>
         <Drawer.Screen name="Home" component={HomeStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>

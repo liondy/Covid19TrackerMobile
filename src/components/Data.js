@@ -8,9 +8,12 @@ import {
 import AnimateNumber from 'react-native-animate-number';
 import {Card} from 'react-native-shadow-cards';
 
-function Data({data}){
+function Data({data,lastUpdate}){
+    const months = ["Januari", "Februari", "Maret","April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    const update = new Date(lastUpdate);
     return(
         <View style={styles.container}>
+            <Text style={styles.date}>Terakhir Diperbaharui: {update.getDate()} {months[update.getMonth()-1]} {update.getFullYear()} {new Date(lastUpdate).toLocaleTimeString()}</Text>
             <Card style={styles.cards1}>
                 <Text style={styles.txPos}>POSITIF</Text>
                 <AnimateNumber
@@ -57,7 +60,7 @@ function Data({data}){
 const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
-        paddingBottom: 50
+        paddingBottom: 70
     },
     cards1:{
         width: '90%',
@@ -121,6 +124,11 @@ const styles = StyleSheet.create({
         color: '#2c3e50',
         fontWeight: "bold",
         textAlignVertical: 'center'
+    },
+    date: {
+        marginBottom: 20,
+        color: '#2c3e50',
+        fontWeight: 'bold'
     }
 });
 
