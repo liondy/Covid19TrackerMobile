@@ -6,7 +6,6 @@ import {
     ScrollView
 } from 'react-native';
 import AnimateNumber from 'react-native-animate-number';
-import {Card} from 'react-native-shadow-cards';
 
 function Data({data,lastUpdate}){
     const months = ["Januari", "Februari", "Maret","April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
