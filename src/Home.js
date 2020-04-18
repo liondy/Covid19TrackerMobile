@@ -102,7 +102,9 @@ function Home(){
                     buttonStyle={{marginTop: 5, marginBottom: 10}}
                 />
                 <Negara data={countryType==false?continent:negara} changeCountry={changeCountry}/>
-                <Graph data={data} isWorldWide={isWorldWide} benua={benuaTerbanyak} negara={negaraTerbanyak} countryType={countryType}/>
+                <View style={{height: 220}}>
+                    <Graph data={data} isWorldWide={isWorldWide} benua={benuaTerbanyak} negara={negaraTerbanyak} countryType={countryType}/>
+                </View>
                 <Data data={data} lastUpdate={date}/>
             </ScrollView>
         </View>
@@ -112,8 +114,8 @@ function Home(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 20,
-        backgroundColor: "#ecf0f1"
+        backgroundColor: "#ecf0f1",
+        paddingTop: 5,
     },
     txTipe: {
         marginLeft: 5

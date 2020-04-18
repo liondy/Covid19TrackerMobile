@@ -59,6 +59,7 @@ function Data({data,lastUpdate}){
 
 const styles = StyleSheet.create({
     container:{
+        marginTop: 10,
         alignItems: 'center',
         paddingBottom: 70
     },

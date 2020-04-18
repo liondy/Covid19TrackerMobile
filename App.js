@@ -64,7 +64,7 @@ function PencegahanStackScreen({navigation}){
                 headerTitle: props => <LogoTitle {...props}/> ,
                 headerStyle: {
                     backgroundColor: 'transparant',
-                    elevation: 0
+                    height: 70,
                 }
             }}
         />
@@ -83,7 +83,7 @@ function PenyebabStackScreen({navigation}){
                 headerTitle: props => <LogoTitle {...props}/> ,
                 headerStyle: {
                     backgroundColor: 'transparant',
-                    elevation: 0
+                    height: 70,
                 }
             }}
         />
@@ -102,7 +102,7 @@ function GejalaStackScreen({navigation}){
                 headerTitle: props => <LogoTitle {...props}/> ,
                 headerStyle: {
                     backgroundColor: 'transparant',
-                    elevation: 0
+                    height: 70,
                 }
             }}
         />
@@ -121,7 +121,7 @@ function TentangStackScreen({navigation}){
                 headerTitle: props => <LogoTitle {...props}/> ,
                 headerStyle: {
                     backgroundColor: 'transparant',
-                    elevation: 0
+                    height: 70,
                 }
             }}
         />
@@ -140,7 +140,7 @@ function HomeStackScreen({navigation}){
                   headerTitle: props => <LogoTitle {...props}/> ,
                   headerStyle: {
                       backgroundColor: 'transparant',
-                      elevation: 0
+                      height: 70,
                   }
               }}
           />
@@ -176,8 +176,7 @@ const styles = StyleSheet.create({
   title: {
     width: 280,
     height: 270,
-    resizeMode: 'stretch',
-    marginTop: 30
+    resizeMode: 'stretch'
   }
 })
 

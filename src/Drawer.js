@@ -96,9 +96,10 @@ const styles = StyleSheet.create({
     },
     openButton: {
         backgroundColor: "#2196F3",
-        borderRadius: 20,
         padding: 10,
-        elevation: 2
+        elevation: 2,
+        width: 270,
+        borderRadius: 20
     },
     textStyle: {
         color: "white",
