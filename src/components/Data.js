@@ -14,7 +14,7 @@ function Data({data,lastUpdate}){
     return(
         <View style={styles.container}>
             <Text style={styles.date}>Terakhir Diperbaharui: {update.getDate()} {months[update.getMonth()-1]} {update.getFullYear()} {new Date(lastUpdate).toLocaleTimeString()}</Text>
-            <Card style={styles.cards1}>
+            <View style={styles.cards1}>
                 <Text style={styles.txPos}>POSITIF</Text>
                 <AnimateNumber
                     style={styles.pos}
@@ -23,11 +23,11 @@ function Data({data,lastUpdate}){
                     value={data.cases}
                     timing="easeOut"
                     formatter={(val) => {
-                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                     }}
                 />
-            </Card>
-            <Card style={styles.cards2}>
+            </View>
+            <View style={styles.cards2}>
                 <Text style={styles.txRecv}>SEMBUH</Text>
                 <AnimateNumber
                     style={styles.recv}
@@ -36,11 +36,11 @@ function Data({data,lastUpdate}){
                     value={data.recovered}
                     timing="easeOut"
                     formatter={(val) => {
-                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                     }}
                 />
-            </Card>
-            <Card style={styles.cards3}>
+            </View>
+            <View style={styles.cards3}>
                 <Text style={styles.txDeaths}>MENINGGAL</Text>
                 <AnimateNumber
                     style={styles.death}
@@ -49,10 +49,10 @@ function Data({data,lastUpdate}){
                     value={data.deaths}
                     timing="easeOut"
                     formatter={(val) => {
-                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                     }}
                 />
-            </Card>
+            </View>
         </View>
     );
 }
@@ -71,7 +71,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderLeftColor: '#f39c12',
-        borderLeftWidth: 10
+        borderLeftWidth: 10,
+        backgroundColor: "#ecf0f1",
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 10
     },
     cards2:{
         width: '90%',
@@ -81,7 +92,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderLeftColor: '#2ecc71',
-        borderLeftWidth: 10
+        borderLeftWidth: 10,
+        backgroundColor: "#ecf0f1",
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 10
     },
     cards3:{
         width: '90%',
@@ -91,7 +113,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderLeftColor: '#2c3e50',
-        borderLeftWidth: 10
+        borderLeftWidth: 10,
+        backgroundColor: "#ecf0f1",
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 10
     },
     txPos: {
         fontSize: 30,

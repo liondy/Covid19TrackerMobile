@@ -8,7 +8,8 @@ import {
 import Plotly from 'react-native-plotly';
 import { PieChart } from 'react-native-chart-kit';
 
-function Graph({data,isWorldWide,benua,negara,countryType}){
+function Graph({data,isWorldWide,benua,negara,countryType,loading}){
+    const [isLoading,trigger] = React.useState(loading);
     const screenWidth = Dimensions.get("window").width-20;
     const color = ["#e67e22","#e74c3c","#f1c40f","#27ae60","#2980b9"];
     const dummyData = {
@@ -20,13 +21,13 @@ function Graph({data,isWorldWide,benua,negara,countryType}){
         type: 'bar'
     }
     const layout = {
-        plot_bgcolor:"#ecf0f1",
-        paper_bgcolor:"#ecf0f1",
+        plot_bgcolor:"#bce1ea",
+        paper_bgcolor:"#bce1ea",
         yaxis: {
             showgrid: false
         },
         margin: {
-            t: 15
+            t: 12,
         },
         height: 280
     }
@@ -52,19 +53,7 @@ function Graph({data,isWorldWide,benua,negara,countryType}){
         })
     }
     const chartConfig = {
-        backgroundGradientFrom: '#fff',
-        backgroundGradientFromOpacity: 0,
-        backgroundGradientTo: '#fff',
-        backgroundGradientToOpacity: 0.5,
-        color: () => '#2c3e50', // THIS
-        propsForLabels: {
-            fontSize: 15,
-            fontWeight: 'bold'
-        },
-        propsForBackgroundLines: {
-            strokeWidth: "0"
-        },
-        barPercentage: 1.5
+        color: () => '#2c3e50',
     };
     return(
         <View style={styles.container}>
@@ -79,11 +68,20 @@ function Graph({data,isWorldWide,benua,negara,countryType}){
                     paddingLeft="15"
                 /> :
                 <View style={styles.chartRow}>
+                    {isLoading && (
+                        <ActivityIndicator
+                            style={{ height: 220 }}
+                            color="#C00"
+                            size="large"
+                        />
+                    )}
                     <Plotly
                         data={dataBiasa}
                         layout={layout}
                         style={styles.barChart}
                         enableFullPlotly
+                        onLoad={()=>trigger(false)}
+                        style={{backgroundColor: '#bce1ea'}}
                     />
                 </View>
             }
@@ -97,7 +95,8 @@ const styles = StyleSheet.create({
         height: 220,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#ecf0f1'
+        backgroundColor: '#bce1ea',
+        marginTop: 1
     },
     barChart: {
         width: '100%',
@@ -106,7 +105,8 @@ const styles = StyleSheet.create({
     chartRow: {
         flex: 1,
         width: '100%',
-        height: '100%'
+        height: '100%',
+        backgroundColor: '#bce1ea'
     },
 });
 

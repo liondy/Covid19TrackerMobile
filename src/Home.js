@@ -22,7 +22,7 @@ function Home(){
     const[negaraTerbanyak,addNegara] = React.useState([]);
     const[countryType,changeType] = React.useState(false);
     const[isWorldWide,changeWorld] = React.useState(true);
-    const[success,setSuccess] = React.useState(true);
+    const[loading,setLoading] = React.useState(true);
     const[tipe,ubahTipe] = React.useState('Tipe: Benua')
     const[date,update] = React.useState('');
     const checkConnectivity = () => {
@@ -77,6 +77,7 @@ function Home(){
         country.localeCompare("World")==0?changeWorld(true):changeWorld(false);
         const fetchDataCountry = await getData(country);
         setData(fetchDataCountry);
+        setLoading(true);
     }
     React.useEffect(() => {
         fetch();
@@ -95,15 +96,16 @@ function Home(){
                 <Button
                     type = "outline"
                     title= {tipe}
+                    titleStyle={{color: "#2c3e50"}}
                     onPress={()=>{
                         changeType(countryType => !countryType)
                         countryType==true?ubahTipe("Tipe: Benua"):ubahTipe("Tipe: Negara")
                     }}
-                    buttonStyle={{marginTop: 5, marginBottom: 10}}
+                    buttonStyle={styles.button}
                 />
                 <Negara data={countryType==false?continent:negara} changeCountry={changeCountry}/>
                 <View style={{height: 220}}>
-                    <Graph data={data} isWorldWide={isWorldWide} benua={benuaTerbanyak} negara={negaraTerbanyak} countryType={countryType}/>
+                    <Graph data={data} isWorldWide={isWorldWide} benua={benuaTerbanyak} negara={negaraTerbanyak} countryType={countryType} loading={loading}/>
                 </View>
                 <Data data={data} lastUpdate={date}/>
             </ScrollView>
@@ -114,7 +116,7 @@ function Home(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#ecf0f1",
+        backgroundColor: "#bce1ea",
         paddingTop: 5,
     },
     txTipe: {
@@ -130,6 +132,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 4,
         borderColor: 'rgba(0, 0, 0, 0.1)',
+    }, 
+    button: {
+        marginTop: 5, 
+        marginBottom: 10, 
+        borderRadius: 10, 
+        borderColor: '#2c3e50',
+        marginLeft: 10,
+        marginRight: 10,
+        borderWidth: 1,
+        backgroundColor: '#ecf0f1'
     }
 });
 

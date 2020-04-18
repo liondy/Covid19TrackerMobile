@@ -21,6 +21,7 @@ import {
   Penyebab,
   Pencegahan
 } from './src/Artikel';
+import AboutUs from './src/AboutUs.js';
 import DrawerContents from './src/Drawer.js';
 
 const Drawer = createDrawerNavigator();
@@ -29,6 +30,7 @@ const TentangStack = createStackNavigator();
 const GejalaStack = createStackNavigator();
 const PenyebabStack = createStackNavigator();
 const PencegahanStack = createStackNavigator();
+const AboutUsStack = createStackNavigator();
 
 function Hamburger({navigation}){
   return(
@@ -50,6 +52,25 @@ function LogoTitle() {
       style={styles.title}
       source={require('./src/assets/judul.png')}
     />
+  );
+}
+
+function AboutUsStackScreen({navigation}){
+  return(
+    <AboutUsStack.Navigator>
+        <AboutUsStack.Screen
+            name="Pencegahan"
+            component={AboutUs}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    height: 70,
+                }
+            }}
+        />
+    </AboutUsStack.Navigator>
   );
 }
 
@@ -167,6 +188,7 @@ function App(){
         <Drawer.Screen name="Kenali Gejala Covid19" component={GejalaStackScreen} />
         <Drawer.Screen name="Penyebab Virus Covid19" component={PenyebabStackScreen} />
         <Drawer.Screen name="Cara Mencegah Virus Covid19" component={PencegahanStackScreen} />
+        <Drawer.Screen name="About" component={AboutUsStackScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );

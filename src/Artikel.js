@@ -147,11 +147,25 @@ export function Pencegahan(){
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: '#bce1ea'
     },
     content: {
-        paddingBottom: 50,
-        padding: 20,
+        margin: 20,
+        backgroundColor: "#ecf0f1",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
     },
     judul: {
         fontSize: 50,
