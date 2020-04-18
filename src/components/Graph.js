@@ -3,11 +3,16 @@ import {
     View,
     StyleSheet,
     Dimensions,
-    Text
+    ActivityIndicator
 } from 'react-native';
 import { PieChart, BarChart, StackedBarChart } from 'react-native-chart-kit';
 
 function Graph({data,isWorldWide,benua,negara,countryType}){
+    if(!data.cases){
+        return(
+            <ActivityIndicator size="small" color="#00ff00" />
+        )
+    }
     const screenWidth = Dimensions.get("window").width-20;
     const color = ["#e67e22","#e74c3c","#f1c40f","#27ae60","#2980b9"];
     const dataBiasa = {

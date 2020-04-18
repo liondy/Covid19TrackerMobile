@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { 
-    Text, 
+import {
+    Platform,
     View, 
     ScrollView, 
-    StyleSheet 
+    StyleSheet,
+    ActivityIndicator,
+    Alert
 } from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
 import Graph from './components/Graph.js';
 import Negara from './components/Negara.js';
 import Data from './components/Data.js';
@@ -19,9 +22,16 @@ function Home(){
     const[negaraTerbanyak,addNegara] = React.useState([]);
     const[countryType,changeType] = React.useState(false);
     const[isWorldWide,changeWorld] = React.useState(true);
+    const[success,setSuccess] = React.useState(true);
     const[tipe,ubahTipe] = React.useState('Tipe: Benua')
     const[date,update] = React.useState('');
-
+    const checkConnectivity = () => {
+        NetInfo.fetch().then(state => {
+            if (!state.isConnected){
+                Alert.alert("Sepertinya kamu sedang offline! Silahkan cek koneksi internetmu!")
+            }
+        })
+    }
     const fetch = async() => {
         const lastUpdate = await getLastUpdate();
         update(lastUpdate);
@@ -73,7 +83,10 @@ function Home(){
     }, []);
     if(!data.cases){
         return(
-            <Text>Loading..</Text>
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <ActivityIndicator size="large" color="#0000ff" />
+                {checkConnectivity()}
+            </View>
         );
     }
     return(
