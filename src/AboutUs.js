@@ -2,20 +2,23 @@ import React from 'react';
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    ScrollView
 } from 'react-native';
 
 function AboutUs(){
     return(
         <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-                <Text style={styles.modalJudul}>
-                    TENTANG COVID19 TRACKER MOBILE
-                </Text>
-                <Text style={styles.modalText}>
-                    Aplikasi ini hanya dibuat iseng dan tidak bertujuan untuk mengambil keuntungan apapun. Aplikasi ini menampilkan data real time mengenai jumlah kasus orang terjangkit virus corona, orang yang sembuh dari virus corona, serta orang yang meninggal karena virus corona dari seluruh dunia. Data didapat dari coronavirus-19-api.herokuapp.com. Data ini selalu di update setiap saat. Aplikasi ini juga menyediakan artikel seputar Covid19. Segala bentuk support, saran sangat diterima. Terima kasih
-                </Text>
-            </View>
+            <ScrollView>
+                <View style={styles.modalView}>
+                    <Text style={styles.modalJudul}>
+                        TENTANG COVID19 TRACKER MOBILE
+                    </Text>
+                    <Text style={styles.modalText}>
+                        Aplikasi ini hanya dibuat iseng dan tidak bertujuan untuk mengambil keuntungan apapun. Aplikasi ini menampilkan data real time mengenai jumlah kasus orang terjangkit virus corona, orang yang sembuh dari virus corona, serta orang yang meninggal karena virus corona dari seluruh dunia. Data didapat dari coronavirus-19-api.herokuapp.com. Data ini selalu di update setiap saat. Aplikasi ini juga menyediakan artikel seputar Covid19. Segala bentuk support, saran sangat diterima. Terima kasih
+                    </Text>
+                </View>
+            </ScrollView>
         </View>
     )
 }

@@ -79,9 +79,9 @@ function Graph({data,isWorldWide,benua,negara,countryType,loading}){
                         data={dataBiasa}
                         layout={layout}
                         style={styles.barChart}
-                        enableFullPlotly
                         onLoad={()=>trigger(false)}
                         style={{backgroundColor: '#bce1ea'}}
+                        config={{displayModeBar: false}}
                     />
                 </View>
             }
