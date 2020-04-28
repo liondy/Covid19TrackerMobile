@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     judul: {
-        fontSize: 50,
+        fontSize: 35,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        textAlign: 'center'
     },
     txt: {
         textAlign: 'justify',
@@ -95,7 +96,8 @@ const styles = StyleSheet.create({
     txtListJudul: {
         fontSize: 25,
         fontWeight: 'bold',
-        marginTop: 10
+        marginTop: 10,
+        textAlign: 'left'
     }
 })
 
