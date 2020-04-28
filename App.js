@@ -231,7 +231,7 @@ function App(){
         <Drawer.Screen name="Kenali Gejala Covid19" component={GejalaStackScreen} />
         <Drawer.Screen name="Penyebab Virus Covid19" component={PenyebabStackScreen} />
         <Drawer.Screen name="Cara Mencegah Virus Covid19" component={PencegahanStackScreen} />
-        <Drawer.Screen name="Tentang Kami" component={AboutUsStackScreen}/>
+        <Drawer.Screen name="Tentang Aplikasi Covid19" component={AboutUsStackScreen}/>
         <Drawer.Screen name="Kebijakan Privasi" component={PrivacyPolicyStackScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>

@@ -31,19 +31,19 @@ function PrivacyPolicy(){
                         Penyajian Data
                     </Text>
                     <Text style={styles.txtList}>
-                        Data yang disajikan diambil dari data open-source dan sama sekali tidak mencuri data. Data yang disajikan diambil dari https://coronavirus-19-api.herokuapp.com/ serta untuk pengambilan artikelnya diambil dari website halodoc. Semua source code dapat dilihat di https://github.com/liondy/Covid19TrackerMobile secara open-source.
+                        Data yang disajikan diambil dari data open-source dan sama sekali tidak mencuri data. Data yang disajikan diambil dari https://coronavirus-19-api.herokuapp.com/ (negara) serta https://api.kawalcorona.com/ (Indonesia) dan untuk pengambilan artikelnya diambil dari website halodoc. Semua source code dapat dilihat di https://github.com/liondy/Covid19TrackerMobile secara open-source.
                     </Text>
                     <Text style={styles.txtListJudul}>
                         Link ke Situs lain
                     </Text>
                     <Text style={styles.txtList}>
-                        Service yang kami berikan tidak memberikan link kepada situs lain. Link yang ada hanya link ke API untuk penyajian data saja dan itu sama sekali aman.
+                        Service yang kami berikan tidak memberikan link kepada situs lain. Link yang ada hanya link ke API untuk penyajian data saja dan ini sangat aman.
                     </Text>
                     <Text style={styles.txtListJudul}>
                         Privasi Anak-Anak
                     </Text>
                     <Text style={styles.txtList}>
-                        Anak-anak dapat secara aman memakai aplikasi ini. Tidak ada data yang diambil dari anak-anak, tetapi untuk berjaga-jaga, tidak disarankan untuk anak di bawah 13 tahun untuk menggunakan aplikasi ini. Anak-anak disarankan untuk menggunakan aplikasi ini bersama orang tuanya.
+                        Anak-anak dapat secara aman memakai aplikasi ini. Tidak ada data yang diambil dari anak-anak, tetapi untuk berjaga-jaga, tidak disarankan untuk anak di bawah 13 tahun untuk menggunakan aplikasi ini. Anak-anak disarankan untuk menggunakan aplikasi ini dengan bimbingan orang tua.
                     </Text>
                     <Text style={styles.txtListJudul}>
                         Kontak Kami
