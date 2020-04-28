@@ -38,7 +38,6 @@ function Province(){
                 name: fetchData[i].attributes.Provinsi
             })
         }
-        console.log(daftarProvinsi);
         setDaftarProvinsi(daftarProvinsi);
     };
     const changeProvince = (idx) => {
