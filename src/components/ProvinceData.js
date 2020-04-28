@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import AnimateNumber from 'react-native-animate-number';
 
-function Data({data,lastUpdate}){
+function Data({pos,sem,meni,lastUpdate}){
     const months = ["Januari", "Februari", "Maret","April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
     const update = new Date(lastUpdate);
     return(
@@ -18,7 +18,7 @@ function Data({data,lastUpdate}){
                     style={styles.pos}
                     steps={10}
                     interval={2.5}
-                    value={data.cases}
+                    value={pos}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -31,7 +31,7 @@ function Data({data,lastUpdate}){
                     style={styles.recv}
                     steps={10}
                     interval={2.5}
-                    value={data.recovered}
+                    value={sem}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -44,7 +44,7 @@ function Data({data,lastUpdate}){
                     style={styles.death}
                     steps={10}
                     interval={2.5}
-                    value={data.deaths}
+                    value={meni}
                     timing="easeOut"
                     formatter={(val) => {
                         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

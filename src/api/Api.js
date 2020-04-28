@@ -1,4 +1,5 @@
 import API from './index';
+import axios from 'axios';
 
 export const getData = async(country) => {
     let prefix = '/all';
@@ -30,6 +31,15 @@ export const getLastUpdate = async() => {
         return lastUpdate;
     }
     catch(error){
+        return error;
+    }
+}
+
+export const getProvinceData = async() => {
+    try {
+        const response = await axios.get('https://api.kawalcorona.com/indonesia/provinsi/');
+        return response.data;
+    } catch (error) {
         return error;
     }
 }

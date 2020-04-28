@@ -49,7 +49,7 @@ function Home(){
     };
     const sortData = (property) => {  
         return function(a,b){  
-            if(a[property] > b[property])  
+            if(a[property] > b[property])
                 return 1;  
             else if(a[property] < b[property])  
                 return -1;  

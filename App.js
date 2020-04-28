@@ -15,6 +15,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Button } from 'react-native-elements';
 import RNBootSplash from "react-native-bootsplash";
 import Home from './src/Home.js';
+import Province from './src/Province.js';
 import {
   Tentang,
   Gejala,
@@ -22,15 +23,18 @@ import {
   Pencegahan
 } from './src/Artikel';
 import AboutUs from './src/AboutUs.js';
+import PrivacyPolicy from './src/PrivacyPolicy.js';
 import DrawerContents from './src/Drawer.js';
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
+const ProvinceStack = createStackNavigator();
 const TentangStack = createStackNavigator();
 const GejalaStack = createStackNavigator();
 const PenyebabStack = createStackNavigator();
 const PencegahanStack = createStackNavigator();
 const AboutUsStack = createStackNavigator();
+const PrivacyPolicyStack = createStackNavigator();
 
 function Hamburger({navigation}){
   return(
@@ -52,6 +56,25 @@ function LogoTitle() {
       style={styles.title}
       source={require('./src/assets/judul.png')}
     />
+  );
+}
+
+function PrivacyPolicyStackScreen({navigation}){
+  return(
+    <PrivacyPolicyStack.Navigator>
+        <PrivacyPolicyStack.Screen
+            name="Privacy"
+            component={PrivacyPolicy}
+            options={{
+                headerLeft: () => <Hamburger navigation={navigation}/>,
+                headerTitle: props => <LogoTitle {...props}/> ,
+                headerStyle: {
+                    backgroundColor: 'transparant',
+                    height: 70,
+                }
+            }}
+        />
+    </PrivacyPolicyStack.Navigator>
   );
 }
 
@@ -150,6 +173,25 @@ function TentangStackScreen({navigation}){
   );
 }
 
+function ProvinceStackScreen({navigation}){
+  return(
+      <ProvinceStack.Navigator>
+          <ProvinceStack.Screen
+              name="Provinsi"
+              component={Province}
+              options={{
+                  headerLeft: () => <Hamburger navigation={navigation}/>,
+                  headerTitle: props => <LogoTitle {...props}/> ,
+                  headerStyle: {
+                      backgroundColor: 'transparant',
+                      height: 70,
+                  }
+              }}
+          />
+      </ProvinceStack.Navigator>
+  );
+}
+
 function HomeStackScreen({navigation}){
   return(
       <HomeStack.Navigator>
@@ -184,11 +226,13 @@ function App(){
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <DrawerContents {...props}/>}>
         <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Lihat Provinsi Indonesia" component={ProvinceStackScreen} />
         <Drawer.Screen name="Tentang Covid19" component={TentangStackScreen} />
         <Drawer.Screen name="Kenali Gejala Covid19" component={GejalaStackScreen} />
         <Drawer.Screen name="Penyebab Virus Covid19" component={PenyebabStackScreen} />
         <Drawer.Screen name="Cara Mencegah Virus Covid19" component={PencegahanStackScreen} />
         <Drawer.Screen name="About" component={AboutUsStackScreen}/>
+        <Drawer.Screen name="Kebijakan Privasi" component={PrivacyPolicyStackScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );

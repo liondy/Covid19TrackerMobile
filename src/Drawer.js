@@ -2,13 +2,10 @@ import * as React from 'react';
 import { 
     View,
     Image,
-    StyleSheet,
-    Text,
-    TouchableHighlight
+    StyleSheet
 } from 'react-native';
 import {
-    DrawerItemList,
-    DrawerItem,
+    DrawerItemList
 } from '@react-navigation/drawer';
 import { ScrollView } from 'react-native-gesture-handler';
 
