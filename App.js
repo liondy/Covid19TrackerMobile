@@ -225,13 +225,13 @@ function App(){
   return (
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <DrawerContents {...props}/>}>
-        <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Beranda" component={HomeStackScreen} />
         <Drawer.Screen name="Lihat Provinsi Indonesia" component={ProvinceStackScreen} />
-        <Drawer.Screen name="Tentang Covid19" component={TentangStackScreen} />
+        <Drawer.Screen name="Covid19" component={TentangStackScreen} />
         <Drawer.Screen name="Kenali Gejala Covid19" component={GejalaStackScreen} />
         <Drawer.Screen name="Penyebab Virus Covid19" component={PenyebabStackScreen} />
         <Drawer.Screen name="Cara Mencegah Virus Covid19" component={PencegahanStackScreen} />
-        <Drawer.Screen name="About" component={AboutUsStackScreen}/>
+        <Drawer.Screen name="Tentang Kami" component={AboutUsStackScreen}/>
         <Drawer.Screen name="Kebijakan Privasi" component={PrivacyPolicyStackScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>

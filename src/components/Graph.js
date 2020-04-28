@@ -8,7 +8,7 @@ import {
 import Plotly from 'react-native-plotly';
 import { PieChart } from 'react-native-chart-kit';
 
-function Graph({data,isWorldWide,benua,negara,countryType,loading}){
+function Graph({data,isWorldWide,negara,loading}){
     const [isLoading,trigger] = React.useState(loading);
     const screenWidth = Dimensions.get("window").width-20;
     const color = ["#e67e22","#e74c3c","#f1c40f","#27ae60","#2980b9"];
@@ -32,16 +32,6 @@ function Graph({data,isWorldWide,benua,negara,countryType,loading}){
         height: 280
     }
     const dataBiasa = [dummyData];
-    const dataBenua = [];
-    for (var i in benua){
-        dataBenua.push({
-            name: benua[i].country,
-            cases: benua[i].cases,
-            color: color[i],
-            legendFontColor: color[i],
-            legendFontSize: 15
-        })
-    }
     const dataNegara = [];
     for (var i in negara){
         dataNegara.push({
@@ -59,7 +49,7 @@ function Graph({data,isWorldWide,benua,negara,countryType,loading}){
         <View style={styles.container}>
             {isWorldWide==true?
                 <PieChart
-                    data={countryType==false?dataBenua:dataNegara}
+                    data={dataNegara}
                     width={screenWidth}
                     height={220}
                     chartConfig={chartConfig}

@@ -42,6 +42,7 @@ function Negara({data,changeCountry}){
 
 const styles = StyleSheet.create({
     picker: {
+        marginTop: 10,
         width: '90%',
         borderWidth: 1,
         borderColor: '#2c3e50',
